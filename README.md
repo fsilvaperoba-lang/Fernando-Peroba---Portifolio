@@ -14,7 +14,7 @@ Olá! Seja bem-vindo ao meu portfólio! Sou um estudante independente de desenvo
 - CSS3
 - JavaScript
 
-## 📂 Meu Projeto
+## 📂 Meus Projetos
 
 ### MeuMês
 Aplicação de planejamento financeiro mensal que permite ao usuário:
@@ -26,6 +26,17 @@ Aplicação de planejamento financeiro mensal que permite ao usuário:
 **Link:** https://meu-mes-app.vercel.app  
 **GitHub:** https://github.com/fsilvaperoba-lang/meu-mes-app
 
+### Minha Lista
+Aplicação de lista de tarefas que permite:
+- ✅ Criar novas tarefas
+- ✏️ Editar tarefas existentes
+- ✔️ Marcar como concluída
+- 🗑️ Excluir tarefas
+
+**Tecnologias:** HTML, CSS, JavaScript  
+**Link:** https://minha-lista-iota.vercel.app/  
+**GitHub:** https://github.com/fsilvaperoba-lang/Minha-Lista
+
 ## 📱 Conecte-se Comigo
 
 - 📧 Email: fsilvaperoba@gmail.com
@@ -36,3 +47,4 @@ Aplicação de planejamento financeiro mensal que permite ao usuário:
 ---
 
 *Feito com ❤️ e muito ☕*
+
