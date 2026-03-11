@@ -775,6 +775,41 @@ img {
 }
 
 /* =========================================
+   MOBILE MENU
+   ========================================= */
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 48px;
+        left: 0;
+        right: 0;
+        background: var(--bg-primary);
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+        border-bottom: 1px solid var(--border);
+    }
+    
+    .nav-links.show {
+        max-height: 300px;
+        padding: 16px 0;
+    }
+    
+    .nav-links a {
+        padding: 12px 20px;
+        font-size: 14px;
+        border-bottom: 1px solid var(--border);
+    }
+    
+    .nav-links a:last-child {
+        border-bottom: none;
+    }
+}
+
+/* =========================================
    RESPONSIVE
    ========================================= */
 @media (max-width: 768px) {
