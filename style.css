@@ -807,15 +807,6 @@ img {
     .nav-links a:last-child {
         border-bottom: none;
     }
-}
-
-/* =========================================
-   RESPONSIVE
-   ========================================= */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
     
     .mobile-nav-btn {
         display: block;
