@@ -1,4 +1,4 @@
-/* =========================================
+ /* =========================================
    APPLE-INSPIRED PORTFOLIO
    Minimalist, Clean, Light & Dark Mode
    ========================================= */
@@ -11,18 +11,18 @@
     --bg-tertiary: #efeff1;
     --text-primary: #1d1d1f;
     --text-secondary: #86868b;
-    --accent: #0066cc;
-    --accent-hover: #004499;
+--accent: #1e40af;
+--accent-hover: #1e3a8a;
     --border: #d2d2d7;
     --card-bg: #ffffff;
-    --shadow: rgba(0, 0, 0, 0.08);
-    --shadow-hover: rgba(0, 0, 0, 0.12);
+--shadow: rgba(0, 0, 0, 0.06);
+--shadow-hover: rgba(0, 0, 0, 0.10);
     
     /* Typography - SF Pro Inspired */
     --font-main: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', sans-serif;
     
     /* Spacing */
-    --container-width: 980px;
+--container-width: 1024px;
     --section-padding: 120px 0;
     
     /* Transitions */
@@ -36,8 +36,8 @@
     --bg-tertiary: #2d2d2f;
     --text-primary: #f5f5f7;
     --text-secondary: #86868b;
-    --accent: #2997ff;
-    --accent-hover: #0071e3;
+--accent: #60a5fa;
+--accent-hover: #3b82f6;
     --border: #424245;
     --card-bg: #1d1d1f;
     --shadow: rgba(0, 0, 0, 0.3);
@@ -195,7 +195,7 @@ img {
 }
 
 .hero-title {
-    font-size: 56px;
+font-size: 64px;
     font-weight: 700;
     line-height: 1.1;
     margin-bottom: 16px;
@@ -315,7 +315,7 @@ img {
 }
 
 .section-title {
-    font-size: 48px;
+    font-size: 52px;
     font-weight: 700;
     margin-bottom: 12px;
     letter-spacing: -0.02em;
@@ -343,7 +343,7 @@ img {
     width: 280px;
     height: 280px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent), #00d4ff);
+background: linear-gradient(135deg, var(--accent), #93c5fd);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -387,7 +387,7 @@ img {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 24px;
-    max-width: 800px;
+    max-width: var(--container-width);
     margin: 0 auto;
 }
 
@@ -637,7 +637,7 @@ img {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 32px;
-    max-width: 900px;
+    max-width: var(--container-width);
     margin: 0 auto;
 }
 
@@ -896,4 +896,3 @@ html {
     background: var(--accent);
     color: #ffffff;
 }
-

@@ -1,17 +1,11 @@
 // Apple-Style Portfolio JavaScript
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Theme Toggle
     initThemeToggle();
-    
-    // Smooth Scroll
     initSmoothScroll();
-    
-    // Navbar Scroll Effect
     initNavbar();
-    
-    // Mobile Menu
     initMobileMenu();
+    initContactForm();
 });
 
 // =========================================
@@ -125,3 +119,44 @@ function initMobileMenu() {
     }
 }
 
+// =========================================
+// EMAILJS CONTACT FORM
+// =========================================
+function initContactForm() {
+    emailjs.init("SUA_PUBLIC_KEY_AQUI"); // Substitua pela sua Public Key do EmailJS
+    
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Mostrar loading
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+            submitBtn.disabled = true;
+            
+emailjs.sendForm('service_ndao01p', 'template_hwa61ay', this)
+                .then(function() {
+                    alert('✅ Mensagem enviada com sucesso! Responderei em breve.');
+                    contactForm.reset();
+                }, function(error) {
+                    alert('❌ Erro ao enviar. Tente novamente ou me mande email direto.');
+                    console.error('EmailJS error:', error);
+                })
+                .finally(function() {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                });
+        });
+    }
+}
+
+// Inicializar tudo
+document.addEventListener('DOMContentLoaded', () => {
+    initThemeToggle();
+    initSmoothScroll();
+    initNavbar();
+    initMobileMenu();
+    initContactForm();
+});
