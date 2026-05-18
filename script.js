@@ -1,123 +1,128 @@
-// Apple-Style Portfolio JavaScript
+(() => {
+  const STORAGE_KEY = 'portfolio_theme';
 
-document.addEventListener('DOMContentLoaded', () => {
-    initThemeToggle();
-    initSmoothScroll();
-    initNavbar();
-    initMobileMenu();
-});
+  function getPreferredTheme() {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved === 'dark' || saved === 'light') return saved;
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return prefersDark ? 'dark' : 'light';
+  }
 
-// =========================================
-// THEME TOGGLE (Light/Dark Mode)
-// =========================================
-function initThemeToggle() {
-    const themeToggle = document.getElementById('themeToggle');
-    const html = document.documentElement;
-    
-    // Check for saved theme preference
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    html.setAttribute('data-theme', savedTheme);
-    updateThemeIcon(savedTheme);
-    
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = html.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            
-            html.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateThemeIcon(newTheme);
-        });
-    }
-    
-    function updateThemeIcon(theme) {
-        const icon = themeToggle.querySelector('i');
-        if (theme === 'dark') {
-            icon.className = 'fas fa-sun';
-        } else {
-            icon.className = 'fas fa-moon';
+  function applyTheme(theme) {
+    document.documentElement.dataset.theme = theme;
+    localStorage.setItem(STORAGE_KEY, theme);
+  }
+
+  function toggleTheme() {
+    const btn = document.querySelector('.theme-toggle');
+    if (!btn) return;
+
+    btn.addEventListener('click', () => {
+      const current = document.documentElement.dataset.theme || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+    });
+  }
+
+  function toggleMobileMenu() {
+    const btn = document.querySelector('.nav__toggle');
+    const links = document.querySelector('#nav-links');
+    if (!btn || !links) return;
+
+    btn.addEventListener('click', () => {
+      const isOpen = links.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', String(isOpen));
+    });
+  }
+
+  function setupIntersectionEffects() {
+    const items = document.querySelectorAll('.card, .chipcard, .callout');
+    if (!items.length) return;
+
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) return;
+
+    items.forEach((el) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(8px)';
+    });
+
+    const obs = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            e.target.style.transition = 'opacity .4s ease, transform .4s ease';
+            e.target.style.opacity = '1';
+            e.target.style.transform = 'translateY(0)';
+            obs.unobserve(e.target);
+          }
         }
-    }
-}
+      },
+      { threshold: 0.1 }
+    );
 
-// =========================================
-// SMOOTH SCROLL
-// =========================================
-function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const target = document.querySelector(targetId);
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
+    items.forEach((el) => obs.observe(el));
+  }
+
+  function setupSectionTransitions() {
+    const sections = document.querySelectorAll('.sec');
+    if (!sections.length) return;
+
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) {
+      sections.forEach(s => s.classList.add('visible'));
+      return;
+    }
+
+    const obs = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+          }
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    sections.forEach((el) => obs.observe(el));
+  }
+
+  function setupKeyboardShortcuts() {
+    document.addEventListener('keydown', (e) => {
+      if (e.altKey || e.ctrlKey || e.metaKey) return;
+
+      switch(e.key) {
+        case '1':
+          document.querySelector('#sobre')?.scrollIntoView({ behavior: 'smooth' });
+          break;
+        case '2':
+          document.querySelector('#projetos')?.scrollIntoView({ behavior: 'smooth' });
+          break;
+        case '3':
+          document.querySelector('#habilidades')?.scrollIntoView({ behavior: 'smooth' });
+          break;
+        case '4':
+          document.querySelector('#contato')?.scrollIntoView({ behavior: 'smooth' });
+          break;
+        case 't':
+        case 'T':
+          const current = document.documentElement.dataset.theme || 'dark';
+          const next = current === 'dark' ? 'light' : 'dark';
+          applyTheme(next);
+          break;
+      }
     });
-}
+  }
 
-// =========================================
-// NAVBAR
-// =========================================
-function initNavbar() {
-    const nav = document.querySelector('.nav');
-    
-    if (nav) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                nav.style.background = 'rgba(var(--bg-primary), 0.9)';
-            } else {
-                nav.style.background = 'rgba(var(--bg-primary), 0.8)';
-            }
-        });
-    }
-    
-    // Active link highlighting
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a');
-    
-    window.addEventListener('scroll', () => {
-        let current = '';
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            
-            if (scrollY >= sectionTop - 200) {
-                current = section.getAttribute('id');
-            }
-        });
-        
-        navLinks.forEach(link => {
-            link.style.color = '';
-            if (link.getAttribute('href') === '#' + current) {
-                link.style.color = 'var(--accent)';
-            }
-        });
-    });
-}
+  function init() {
+    applyTheme(getPreferredTheme());
+    toggleTheme();
+    toggleMobileMenu();
+    setupIntersectionEffects();
+    setupSectionTransitions();
+    setupKeyboardShortcuts();
+  }
 
-// =========================================
-// MOBILE MENU
-// =========================================
-function initMobileMenu() {
-    const mobileBtn = document.getElementById('mobileMenuBtn');
-    const navLinks = document.querySelector('.nav-links');
-    
-    if (mobileBtn && navLinks) {
-        mobileBtn.addEventListener('click', () => {
-            // Toggle mobile menu (could be expanded)
-            navLinks.classList.toggle('show');
-        });
-    }
-}
-
-
-
-
+  init();
+})();

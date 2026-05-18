@@ -1,354 +1,248 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="light">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfólio de Fernando Peroba - Desenvolvedor Front-end">
-    <meta name="author" content="Fernando Peroba">
-    <title>Fernando Peroba | Desenvolvedor Front-end</title>
-    
-    <!-- Apple Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fernando Peroba - Portfolio</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.ico">
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-container">
-            <a href="#home" class="nav-logo">Fernando Peroba</a>
-            
-            <div class="nav-links">
-                <a href="#about">Sobre</a>
-                <a href="#skills">Habilidades</a>
-                <a href="#projects">Projetos</a>
-                <a href="#contact">Contato</a>
-            </div>
-            
-            <div style="display: flex; align-items: center; gap: 12px;">
-                <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <button class="mobile-nav-btn" id="mobileMenuBtn" aria-label="Menu">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </div>
-    </nav>
+  <a href="#main" class="skip-link">Pular para conteúdo principal</a>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <span class="hero-badge">Estudante de Front-end</span>
-            
-            <h1 class="hero-title">
-                Olá, eu sou <span class="highlight">Fernando Peroba</span>
+  <!-- Topo -->
+  <header class="topo">
+    <div class="container topo__inner">
+      <div class="logo">
+        <div class="logo__pixel">FP</div>
+        <div class="logo__meta">
+          <span class="logo__nome">Fernando Peroba</span>
+          <span class="logo__cargo">Desenvolvedor Front-end</span>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <button class="nav__toggle" aria-expanded="false" aria-controls="nav-links">
+          Menu
+        </button>
+        <ul class="nav__links" id="nav-links">
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#habilidades">Habilidades</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+
+      <button class="theme-toggle" aria-label="Alternar tema">
+        <span>◐</span> Tema
+      </button>
+    </div>
+  </header>
+
+  <!-- Marquee estilo anos 2000 -->
+  <div class="marquee">
+    <div class="marquee-content">
+      ★ Bem-vindo ao meu portfolio ★ Desenvolvedor Front-end em formação ★ Estudando desde 2023 ★ Autodidata ★ Criativo ★ Curioso por tecnologia ★
+    </div>
+  </div>
+
+  <!-- Folhas caindo -->
+  <div class="falling-leaves">
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+  </div>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero__grid">
+          <div class="hero__conteudo">
+            <div class="badge">
+              <span class="badge__dot"></span>
+              Em busca de oportunidades
+            </div>
+
+            <h1 class="hero__titulo">
+              Olá, eu sou <span class="neon">Fernando Peroba</span>
             </h1>
-            
-            <p class="hero-subtitle">Front-End Developer focado em criar aplicações web modernas, rápidas e responsivas utilizando HTML, CSS e JavaScript.</p>
-            
-            <p class="hero-description">
-                Estudante independente construindo projetos práticos e buscando oportunidades para crescer como desenvolvedor.
+
+            <span class="hero__sub">Desenvolvedor Front-end em Formação</span>
+
+            <p class="hero__texto">
+              Estudando front-end desde 2023, sou autodidata com facilidade em aprender. 
+              Meu objetivo é trabalhar na área aproveitando minha criatividade e curiosidade 
+              pelo design web e tecnologias.
             </p>
-            
-            <div class="hero-cta">
-                <a href="#projects" class="btn btn-primary">
-                    <span>Ver Projetos</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-                <a href="#contact" class="btn btn-secondary">
-                    <span>Contato</span>
-                </a>
+
+            <div class="hero__cta">
+              <a href="#contato" class="btn btn--primary">Entrar em contato</a>
+              <a href="https://github.com/fsilvaperoba-lang" target="_blank" class="btn btn--ghost">Ver GitHub</a>
             </div>
-            
-<div class="hero-stats">
-                <div class="stat">
-                    <div class="stat-number">400+</div>
-                    <div class="stat-label">Horas Estudadas</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">5+</div>
-                    <div class="stat-label">Projetos Completos</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">3</div>
-                    <div class="stat-label">Tecnologias Principais</div>
-                </div>
-            </div>
+
+            <ul class="stats">
+              <li class="stat">
+                <span class="stat__label">Estudando desde</span>
+                <span class="stat__value">2023</span>
+              </li>
+              <li class="stat">
+                <span class="stat__label">Foco</span>
+                <span class="stat__value">Front-end</span>
+              </li>
+              <li class="stat">
+                <span class="stat__label">Aprendizado</span>
+                <span class="stat__value">Autodidata</span>
+              </li>
+            </ul>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Sobre Mim</span>
-                <h2 class="section-title">Minha <span class="highlight">Jornada</span></h2>
-                <p class="section-subtitle">Transformando aprendizado em projetos</p>
-            </div>
-            
-            <div class="about-grid">
-                <div class="about-left">
-<div class="about-avatar">
-                    <img src="foto perfil.png" alt="Fernando Peroba" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-                </div>
-                    
-                    <div class="skills">
-                        <span class="skill-tag">HTML</span>
-                        <span class="skill-tag">CSS</span>
-                        <span class="skill-tag">JavaScript</span>
-                    </div>
-                </div>
-                
-                <div class="about-content">
-                    <h3>Desenvolvedor Front-end</h3>
-                    <p>
-                        Sou um desenvolvedor front-end em construção, dedicado a aprender e praticar as principais tecnologias da web moderna. Meu foco está em criar interfaces modernas, funcionais e acessíveis.
-                    </p>
-                    <p>
-                        Estou construindo projetos práticos para desenvolver minhas habilidades e ganhar experiência. Busco oportunidades para crescer como desenvolvedor e contribuir em projetos que façam diferença.
-                    </p>
-                    
-                    <div class="features">
-                        <div class="feature">
-                            <div class="feature-icon">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <h4>Clean Code</h4>
-                            <p>Código organizado e manutenível</p>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-icon">
-                                <i class="fas fa-mobile-alt"></i>
-                            </div>
-                            <h4>Responsivo</h4>
-                            <p>Funciona em qualquer dispositivo</p>
-                        </div>
-                    </div>
-                    
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/fernando-silva-peroba-461a9a346" target="_blank" class="social-link" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://github.com/fsilvaperoba-lang" target="_blank" class="social-link" aria-label="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://www.instagram.com/peroba.jpg/?hl=en" target="_blank" class="social-link" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+    <!-- Sobre -->
+    <section id="sobre" class="sec sec--alt">
+      <div class="container">
+        <div class="sec__cabecalho">
+          <h2 class="sec__titulo">SOBRE MIM</h2>
+          <p class="sec__texto">Minha jornada no desenvolvimento web</p>
         </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3 class="card__titulo">Minha Trajetória</h3>
+            <p class="card__texto">
+              Comecei a estudar front-end em 2023 de forma independente. 
+              Sou autodidata e tenho facilidade em aprender novas tecnologias. 
+              Meu foco é desenvolvimento web, combinando criatividade com design e tecnologia.
+            </p>
+          </div>
+
+          <div class="card card--soft">
+            <h3 class="card__titulo">Meu Objetivo</h3>
+            <p class="card__texto">
+              Quero trabalhar na área de desenvolvimento front-end, onde posso 
+              aplicar minha criatividade e curiosidade constante por aprender. 
+              Busco oportunidades para crescer profissionalmente e contribuir com projetos reais.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Skills Section -->
-    <section class="skills-section" id="skills">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Habilidades</span>
-                <h2 class="section-title">Tecnologias & <span class="highlight">Ferramentas</span></h2>
-                <p class="section-subtitle">Ferramentas que utilizo no dia a dia</p>
-            </div>
-            
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-html5"></i>
-                    </div>
-                    <h3>HTML5</h3>
-                    <p>Estruturação semântica</p>
-                </div>
-                
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-css3-alt"></i>
-                    </div>
-                    <h3>CSS3</h3>
-                    <p>Estilização e design responsivo</p>
-                </div>
-                
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-js"></i>
-                    </div>
-                    <h3>JavaScript</h3>
-                    <p>Interatividade e lógica</p>
-                </div>
-                
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-git-alt"></i>
-                    </div>
-                    <h3>Git</h3>
-                    <p>Controle de versão</p>
-                </div>
-                
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-github"></i>
-                    </div>
-                    <h3>GitHub</h3>
-                    <p>Hospedagem de código</p>
-                </div>
-                
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-code-branch"></i>
-                    </div>
-                    <h3>VS Code</h3>
-                    <p>Editor de código</p>
-                </div>
-                
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>Responsivo</h3>
-                    <p>Mobile-first</p>
-                </div>
-                
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-terminal"></i>
-                    </div>
-                    <h3>Terminal</h3>
-                    <p>Linha de comando</p>
-                </div>
-            </div>
+    <!-- Projetos (placeholder) -->
+    <section id="projetos" class="sec">
+      <div class="container">
+        <div class="sec__cabecalho">
+          <h2 class="sec__titulo">PROJETOS</h2>
+          <p class="sec__texto">Em breve - Estou trabalhando em projetos incríveis!</p>
         </div>
+
+        <div class="card" style="text-align: center; padding: 32px;">
+          <p class="card__texto" style="font-size: 14px;">
+            🚧 Esta seção está em construção. Estou desenvolvendo projetos 
+            para demonstrar minhas habilidades em HTML, CSS e JavaScript. 
+            Em breve você poderá ver meus trabalhos aqui!
+          </p>
+        </div>
+      </div>
     </section>
 
-    <!-- Projects Section -->
-    <section class="projects" id="projects">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Projetos</span>
-                <h2 class="section-title">Meus <span class="highlight">Trabalhos</span></h2>
-                <p class="section-subtitle">Projetos que desenvolvi durante minha jornada</p>
-            </div>
-            
-            <div class="projects-grid">
-                <!-- MeuMês Project -->
-                <article class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-wallet"></i>
-                    </div>
-                    <div class="project-content">
-                        <span class="project-category">Finanças Pessoais</span>
-                        <h3 class="project-title">MeuMês</h3>
-                        <p class="project-description">
-                            Aplicação web para controle financeiro mensal que permite registrar despesas, visualizar categorias de gastos e simular saldo final. Desenvolvido com HTML, CSS e JavaScript.
-                        </p>
-                        <div class="project-tech">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://meu-mes-app.vercel.app" target="_blank" class="project-link primary">
-                                <i class="fas fa-external-link-alt"></i>
-                                Ver Projeto
-                            </a>
-                            <a href="https://github.com/fsilvaperoba-lang/meu-mes-app" target="_blank" class="project-link secondary">
-                                <i class="fab fa-github"></i>
-                                Código
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Minha Lista Project -->
-                <article class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-list-check"></i>
-                    </div>
-                    <div class="project-content">
-                        <span class="project-category">Gerenciador de Tarefas</span>
-                        <h3 class="project-title">Minha Lista</h3>
-                        <p class="project-description">
-                            Aplicação web para gerenciamento de tarefas que permite criar, editar, marcar como concluída e excluir tarefas. Resolve a necessidade de organização diária. Desenvolvido com HTML, CSS e JavaScript.
-                        </p>
-                        <div class="project-tech">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://minha-lista-iota.vercel.app/" target="_blank" class="project-link primary">
-                                <i class="fas fa-external-link-alt"></i>
-                                Ver Projeto
-                            </a>
-                            <a href="https://github.com/fsilvaperoba-lang/Minha-Lista" target="_blank" class="project-link secondary">
-                                <i class="fab fa-github"></i>
-                                Código
-                            </a>
-                        </div>
-                    </div>
-                </article>
-            </div>
+    <!-- Habilidades -->
+    <section id="habilidades" class="sec">
+      <div class="container">
+        <div class="sec__cabecalho">
+          <h2 class="sec__titulo">HABILIDADES</h2>
+          <p class="sec__texto">Tecnologias que estou estudando</p>
         </div>
+
+        <div class="grid-3">
+          <div class="chipcard">
+            <div class="chipcard__top">
+              <div class="chipcard__icon">HT</div>
+              <h3 class="chipcard__titulo">HTML</h3>
+            </div>
+            <p class="chipcard__texto">Estrutura semântica, acessibilidade</p>
+            <div class="chipcard__bar">
+              <span style="width: 75%"></span>
+            </div>
+          </div>
+
+          <div class="chipcard">
+            <div class="chipcard__top">
+              <div class="chipcard__icon">CS</div>
+              <h3 class="chipcard__titulo">CSS</h3>
+            </div>
+            <p class="chipcard__texto">Flexbox, Grid, responsividade</p>
+            <div class="chipcard__bar">
+              <span style="width: 70%"></span>
+            </div>
+          </div>
+
+          <div class="chipcard">
+            <div class="chipcard__top">
+              <div class="chipcard__icon">JS</div>
+              <h3 class="chipcard__titulo">JavaScript</h3>
+            </div>
+            <p class="chipcard__texto">ES6+, DOM, manipulação de eventos</p>
+            <div class="chipcard__bar">
+              <span style="width: 60%"></span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-                <div class="contact-content">
-                <span class="section-tag">Contato</span>
-                <h3>Vamos <span class="highlight">Conversar</span></h3>
-                <p>Estou sempre aberto a conversar sobre projetos, ideias ou oportunidades.</p>
-                
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:fsilvaperoba@gmail.com">fsilvaperoba@gmail.com</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-github"></i>
-                        <a href="https://github.com/fsilvaperoba-lang" target="_blank">@fsilvaperoba-lang</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-linkedin"></i>
-                        <a href="https://www.linkedin.com/in/fernando-silva-peroba-461a9a346" target="_blank">Fernando Silva Peroba</a>
-                    </div>
-                </div>
-                
-                <div class="social-links" style="justify-content: center; margin-top: 2rem;">
-                    <a href="https://www.linkedin.com/in/fernando-silva-peroba-461a9a346" target="_blank" class="social-link" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://github.com/fsilvaperoba-lang" target="_blank" class="social-link" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.instagram.com/peroba.jpg/?hl=en" target="_blank" class="social-link" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                </div>
-            </div>
+    <!-- Contato -->
+    <section id="contato" class="sec sec--alt">
+      <div class="container">
+        <div class="sec__cabecalho">
+          <h2 class="sec__titulo">CONTATO</h2>
+          <p class="sec__texto">Vamos conversar?</p>
         </div>
+
+        <div class="callout">
+          <span class="callout__icon">✉</span>
+          <p class="callout__texto">
+            Estou em busca de oportunidades na área de desenvolvimento front-end. 
+            Entre em contato para discutirmos como posso contribuir com seu projeto.
+          </p>
+        </div>
+
+        <div class="grid-3" style="margin-top: 20px;">
+          <a href="https://wa.me/5527988576612" target="_blank" class="card" style="text-decoration: none; display: block;">
+            <h3 class="card__titulo">WhatsApp</h3>
+            <p class="card__texto">(27) 98857-6612</p>
+          </a>
+
+          <a href="https://www.linkedin.com/in/fernando-peroba-232a753b6" target="_blank" class="card" style="text-decoration: none; display: block;">
+            <h3 class="card__titulo">LinkedIn</h3>
+            <p class="card__texto">fernando-peroba-232a753b6</p>
+          </a>
+
+          <a href="https://github.com/fsilvaperoba-lang" target="_blank" class="card" style="text-decoration: none; display: block;">
+            <h3 class="card__titulo">GitHub</h3>
+            <p class="card__texto">fsilvaperoba-lang</p>
+          </a>
+        </div>
+      </div>
     </section>
+  </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p>© 2024 Fernando Peroba. Feito com ♡ e muito ☕</p>
-            <div class="footer-links">
-                <a href="#home">Início</a>
-                <a href="#about">Sobre</a>
-                <a href="#skills">Habilidades</a>
-                <a href="#projects">Projetos</a>
-                <a href="#contact">Contato</a>
-            </div>
-        </div>
-    </footer>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2024 Fernando Peroba. Desenvolvido com criatividade e dedicação.</p>
+    </div>
+  </footer>
 
-    <!-- JavaScript -->
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
